@@ -5,3 +5,15 @@
 body {
   background-color: #f6f7f8;
 }
+
+h2 img {
+  text-align: center;
+}
+
+input {
+  padding-right: 2.5rem; /* Ajusta o preenchimento à direita para não sobrepor o ícone */
+}
+
+i {
+  font-size: 1.25rem; /* Tamanho do ícone */
+}

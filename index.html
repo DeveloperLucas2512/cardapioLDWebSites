@@ -53,7 +53,7 @@
     <!-- CARDAPIO -->
     <div id="menu">
       <main
-        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7x1 px-2 mb-20 lg:grid-cols-3"
+        class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7x1 px-2 mb-10 lg:grid-cols-3"
       >
         <!-- INICIO Produtos -->
         <div class="flex gap-2">
@@ -73,7 +73,7 @@
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
                 data-name="Hambuguer Smash"
-                data-price="18,90"
+                data-price="18.90"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
@@ -100,7 +100,7 @@
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
                 data-name="Hamburguer Duplo"
-                data-price="32,90"
+                data-price="32.90"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
@@ -117,7 +117,7 @@
             class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
           />
           <div>
-            <p class="font-bold">Hamburguer Salad</p>
+            <p class="font-bold">Hamburguer Salada</p>
             <p class="text-sm">
               Pão levinho de fermentação natural da Tigoou, burguer 160g, queijo
               e maionese da casa.
@@ -127,7 +127,7 @@
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
                 data-name="Hamburguer Salad"
-                data-price="18,90"
+                data-price="35.90"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
@@ -154,7 +154,7 @@
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
                 data-name="Hamburguer da Casa"
-                data-price="30"
+                data-price="32.90"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
@@ -164,7 +164,7 @@
         <!-- FIM Produtos -->
       </main>
 
-      <div class="mx-auto max-w-7x1 px-2 my-2 mt-5 mb-3">
+      <div class="mx-auto max-w-7x1 px-2 my-2 mt-3 mb-3">
         <h2 class="font-bold text-2xl text-left">Bebidas</h2>
       </div>
       <!-- INICIO GRID BEBIDAS -->
@@ -226,6 +226,7 @@
     <!-- MODAL CARD -->
     <div
       class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
+      id="cart-modal"
     >
       <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
         <h2 class="text-center font-bold text-2xl mb-2">Meu Carrinho</h2>
@@ -234,16 +235,26 @@
 
         <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
 
-        <p class="font-bold mt-4">Endereço de Entrega:</p>
-        <input
-          type="text"
-          placeholder="Digite seu endereço completo..."
-          id="address"
-          class="w-full border-2 p-1 rounded my-1"
-        />
+        <div class="relative my-4">
+          <p class="font-bold mt-4">Endereço de Entrega:</p>
+          <input
+            type="text"
+            placeholder="Digite seu endereço completo..."
+            id="address"
+            class="w-full border-2 p-1 rounded pr-10"
+          />
+          <i
+            class="fas fa-map-marker-alt absolute right-3 top-1/2 transform text-red-500 cursor-pointer"
+            id="get-location"
+          ></i>
+        </div>
 
         <p class="text-red-500 hidden" id="address-warn">
           Digite seu endereço completo!
+        </p>
+
+        <p class="text-red-500 hidden" id="cart-warn">
+          Seu carrinho está vazio!
         </p>
 
         <div class="flex iet justify-between mt-5 w-full">
@@ -254,6 +265,39 @@
           >
             Finalizar Pedido
           </button>
+        </div>
+
+        <div
+          id="success-modal"
+          class="hidden fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50"
+        >
+          <div class="bg-white p-5 rounded shadow-md text-center">
+            <h2 class="font-bold">Pedido Finalizado com Sucesso!</h2>
+            <p id="modal-message"></p>
+            <button
+              id="close-modal"
+              class="mt-4 bg-red-500 text-white px-4 py-1 rounded"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+          id="success-modal"
+          class="hidden fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50"
+        >
+          <div class="bg-white p-5 rounded shadow-md text-center">
+            <h2 class="font-bold">Pedido Finalizado com Sucesso!</h2>
+            <p id="modal-message"></p>
+            <button
+              id="close-modal"
+              class="mt-4 bg-red-500 text-white px-4 py-1 rounded"
+            >
+              Fechar
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -266,10 +310,15 @@
         class="flex items-center gap-2 text-white font-bold"
         id="cart-btn"
       >
-        (<span id="cart-count">2</span>) Veja meu carrinho
+        (<span id="cart-count">0</span>) Total itens
         <i class="fa fa-cart-plus text-lg text-white"></i>
+        <p class="font-bold px-6">
+          Total: <span id="cart-total-footer">0.00</span>
+        </p>
       </button>
     </footer>
     <!-- FIM FOOTER CARD -->
   </body>
+
+  <script src="script.js"></script>
 </html>
