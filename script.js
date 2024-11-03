@@ -296,7 +296,7 @@ checkoutBtn.addEventListener("click", function () {
   const mensagemWhatsApp = `*N. Pedido:* ${randomNumber}\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
   // Abrir WhatsApp com a mensagem formatada
-  const phone = "16997897371";
+  const phone = "16992381823";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(mensagemWhatsApp)}`,
     "_blank"
