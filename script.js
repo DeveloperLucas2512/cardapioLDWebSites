@@ -204,65 +204,108 @@ addressInput.addEventListener("input", function () {
   }
 });
 
+// verificar horario de funcionamento e manipular o card do horario
+function checkRestauranteOpen() {
+  const data = new Date(); // Pega data atual
+  const hora = data.getHours(); // Devolve a hora atual
+  return hora >= 18 && hora < 22; // true = restaurante estará aberto
+}
+
+const spanItem = document.getElementById("date-span");
+const isOpen = checkRestauranteOpen();
+
+// Atualiza a cor de fundo e exibe o horário de funcionamento com o status
+if (isOpen) {
+  spanItem.classList.remove("bg-red-500");
+  spanItem.classList.add("bg-green-600");
+  spanItem.innerHTML = `
+    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-bold justify-center flex">(ABERTO)</span>
+  `;
+} else {
+  spanItem.classList.remove("bg-green-600");
+  spanItem.classList.add("bg-red-500");
+  spanItem.innerHTML = `
+    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-bold justify-center flex">(FECHADO)</span>
+  `;
+}
+
+// Evento de clique para finalizar o pedido
+// Função para verificar o horário de funcionamento do restaurante
+function checkRestauranteOpen() {
+  const data = new Date(); // Data atual
+  const hora = data.getHours(); // Hora atual
+  return hora >= 8 && hora < 22; // Restaurante aberto entre 18:00 e 22:00
+}
+
 // Evento de clique para finalizar o pedido
 checkoutBtn.addEventListener("click", function () {
+  // Ocultar avisos iniciais de carrinho e endereço
   document.getElementById("cart-warn").classList.add("hidden");
-  document.getElementById("address-warn").classList.add("hidden");
+  addressWarn.classList.add("hidden");
 
+  // Verificar se o restaurante está aberto
   const isOpen = checkRestauranteOpen();
-  if (cart.length !== 0 && addressInput.value === "") {
-    const isOpen = checkRestauranteOpen();
-    if (!isOpen) {
-      alert("RESTAURANTE FECHADO");
-      return;
-    }
-
-    addressWarn.classList.remove("hidden");
-    addressInput.classList.add("border-red-500");
-    // Exibe aviso de endereço vazio
-    return; // Não prosseguir se o endereço estiver vazio
+  if (!isOpen) {
+    alert("RESTAURANTE FECHADO");
+    return; // Parar a função se o restaurante está fechado
   }
 
+  // Verificar se o carrinho está vazio
   if (cart.length === 0) {
     document.getElementById("cart-warn").classList.remove("hidden");
-    addressInput.classList.add("border-red-500"); // Exibe aviso de carrinho vazio
-    return;
+    return; // Parar a função se o carrinho está vazio
   }
 
-  // Limpar campos
-  addressInput.value = ""; // Limpa o campo de endereço
-  cart.length = 0; // Limpa o carrinho (ou remova os itens conforme sua lógica)
+  // Verificar se o endereço está preenchido
+  if (addressInput.value.trim() === "") {
+    addressWarn.classList.remove("hidden"); // Mostrar aviso se o endereço está vazio
+    addressInput.classList.add("border-red-500");
+    return; // Parar a função se o endereço está vazio
+  }
 
-  // Exibir a modal com mensagem de sucesso
-  const randomNumber = Math.floor(Math.random() * 10000); // Gera um número aleatório
-  const currentDate = new Date(); // Obtém a data atual
-  const currentTime = currentDate.toLocaleTimeString(); // Obtém a hora atual formatada
-  const formattedDate = currentDate.toLocaleDateString(); // Obtém a data formatada
+  // Limpar campo de endereço e resetar o carrinho após finalizar pedido e enviar para o whats
+  const pedidoItens = cart
+    .map(
+      (item) =>
+        `${item.name} - Quantidade: (${
+          item.quantity
+        }) - Preço: R$ ${item.price.toFixed(2)} |`
+    )
+    .join("\n");
 
-  // Atualiza o conteúdo da mensagem da modal com títulos e informações em linhas separadas
+  // Atualizar o modal com o número do pedido, data e hora
+  const randomNumber = Math.floor(Math.random() * 10000);
+  const currentDate = new Date();
+  const currentTime = currentDate.toLocaleTimeString();
+  const formattedDate = currentDate.toLocaleDateString();
+
   modalMessage.innerHTML = `
     <strong>Número do Pedido:</strong> ${randomNumber}<br>
     <strong>Hora:</strong> ${currentTime}<br>
     <strong>Data:</strong> ${formattedDate}
   `;
 
-  // enviar o pedido para whatsapp
-  // Mapeia os itens do carrinho em strings formatadas
-  const cartItems = cart.map((item) => {
-    return ` ${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price}`;
-  });
+  // Exibir o modal de sucesso e limpar o carrinho
+  successModal.classList.remove("hidden"); // Mostrar modal de sucesso
+  cart = []; // Esvaziar o carrinho
 
-  // Exibe todos os itens do carrinho no console
-  console.log(cartItems.join("\n")); // Exibe cada item em uma nova linha
+  const message = encodeURIComponent(pedidoItens);
+  const phone = "16997897371";
 
-  // Enviar o pedido para o WhatsApp ou exibir onde necessário
+  window.open(
+    `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value} Número Pedido: ${randomNumber}`,
+    "_blank"
+  );
+  //console.log("Itens do Pedido:\n", pedidoItens); // Exibe cada item em uma nova linha
 
-  successModal.classList.remove("hidden"); // Exibe a modal
+  updateCartModal(); // Atualizar o carrinho visualmente
 });
 
-// Evento de clique para fechar a modal
+// Evento de clique para fechar o modal de sucesso
 closeModal.addEventListener("click", function () {
-  successModal.classList.add("hidden"); // Oculta a modal
+  successModal.classList.add("hidden"); // Ocultar modal de sucesso
 });
 
 localizacaoAtual.addEventListener("click", function () {
@@ -294,30 +337,3 @@ localizacaoAtual.addEventListener("click", function () {
     alert("Geolocalização não é suportada neste navegador.");
   }
 });
-
-// verificar horario de funcionamento e manipular o card do horario
-function checkRestauranteOpen() {
-  const data = new Date(); // Pega data atual
-  const hora = data.getHours(); // Devolve a hora atual
-  return hora >= 18 && hora < 22; // true = restaurante estará aberto
-}
-
-const spanItem = document.getElementById("date-span");
-const isOpen = checkRestauranteOpen();
-
-// Atualiza a cor de fundo e exibe o horário de funcionamento com o status
-if (isOpen) {
-  spanItem.classList.remove("bg-red-500");
-  spanItem.classList.add("bg-green-600");
-  spanItem.innerHTML = `
-    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
-    <span class="text-white font-bold justify-center flex">(ABERTO)</span>
-  `;
-} else {
-  spanItem.classList.remove("bg-green-600");
-  spanItem.classList.add("bg-red-500");
-  spanItem.innerHTML = `
-    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
-    <span class="text-white font-bold justify-center flex">(FECHADO)</span>
-  `;
-}
