@@ -219,14 +219,14 @@ if (isOpen) {
   spanItem.classList.remove("bg-red-500");
   spanItem.classList.add("bg-green-600");
   spanItem.innerHTML = `
-    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-medium block ">Seg á Dom - 8:00 às 22:00</span><br>
     <span class="text-white font-bold justify-center flex">(ABERTO)</span>
   `;
 } else {
   spanItem.classList.remove("bg-green-600");
   spanItem.classList.add("bg-red-500");
   spanItem.innerHTML = `
-    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-medium block ">Seg á Dom - 8:00 às 22:00</span><br>
     <span class="text-white font-bold justify-center flex">(FECHADO)</span>
   `;
 }
@@ -296,7 +296,7 @@ checkoutBtn.addEventListener("click", function () {
   const mensagemWhatsApp = `*N. Pedido:* *${randomNumber}*\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
   // Abrir WhatsApp com a mensagem formatada
-  const phone = "16997897371";
+  const phone = "16993102055";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(mensagemWhatsApp)}`,
     "_blank"
