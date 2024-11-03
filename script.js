@@ -269,11 +269,11 @@ checkoutBtn.addEventListener("click", function () {
   const pedidoItens = cart
     .map(
       (item) =>
-        `- ${item.name}\nQuantidade: ${
+        `*${item.name}*\nQtd: ${
           item.quantity
-        }\nPreço: R$ ${item.price.toFixed(2)}\n`
+        }\t\tPreço: R$ ${item.price.toFixed(2)}\n`
     )
-    .join(""); // O join aqui não precisa de separador para manter as quebras de linha
+    .join("\n");
 
   // Gerar informações do pedido
   const randomNumber = Math.floor(Math.random() * 10000);
@@ -283,7 +283,7 @@ checkoutBtn.addEventListener("click", function () {
 
   // Atualizar o modal com o número do pedido, data e hora
   modalMessage.innerHTML = `
-    <strong>Número do Pedido:</strong> <span style="color: red;">${randomNumber}</span><br>
+    <strong>N. Pedido:</strong> <span style="color: red;">${randomNumber}</span><br>
     <strong>Hora:</strong> ${currentTime}<br>
     <strong>Data:</strong> ${formattedDate}
   `;
@@ -293,7 +293,7 @@ checkoutBtn.addEventListener("click", function () {
   cart = []; // Esvaziar o carrinho
 
   // Formatar mensagem para o WhatsApp
-  const mensagemWhatsApp = `*Número do Pedido:* ${randomNumber}\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
+  const mensagemWhatsApp = `*N. Pedido:* ${randomNumber}\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
   // Abrir WhatsApp com a mensagem formatada
   const phone = "16997897371";
