@@ -17,3 +17,11 @@ input {
 i {
   font-size: 1.25rem; /* Tamanho do ícone */
 }
+
+#close-modal-btn {
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}

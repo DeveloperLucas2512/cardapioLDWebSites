@@ -190,26 +190,43 @@ function deleteItemCart(name) {
 
 // Evento de input para ocultar o aviso ao preencher o campo de endereço
 addressInput.addEventListener("input", function () {
+  let inputValue = event.target.value;
+
   if (addressInput.value.trim() !== "") {
     addressWarn.classList.add("hidden"); // Oculta o aviso se o campo estiver preenchido
   } else {
     addressWarn.classList.remove("hidden"); // Mostra o aviso se o campo estiver vazio
   }
+
+  if (inputValue !== "") {
+    addressInput.classList.remove("border-red-500");
+    addressWarn.classList.add("hidden");
+  }
 });
+
 // Evento de clique para finalizar o pedido
 checkoutBtn.addEventListener("click", function () {
-  // Limpa avisos anteriores
   document.getElementById("cart-warn").classList.add("hidden");
   document.getElementById("address-warn").classList.add("hidden");
 
-  if (cart.length === 0) {
-    document.getElementById("cart-warn").classList.remove("hidden"); // Exibe aviso de carrinho vazio
-    return;
+  const isOpen = checkRestauranteOpen();
+  if (cart.length !== 0 && addressInput.value === "") {
+    const isOpen = checkRestauranteOpen();
+    if (!isOpen) {
+      alert("RESTAURANTE FECHADO");
+      return;
+    }
+
+    addressWarn.classList.remove("hidden");
+    addressInput.classList.add("border-red-500");
+    // Exibe aviso de endereço vazio
+    return; // Não prosseguir se o endereço estiver vazio
   }
 
-  if (cart.length !== 0 && addressInput.value === "") {
-    addressWarn.classList.remove("hidden"); // Exibe aviso de endereço vazio
-    return; // Não prosseguir se o endereço estiver vazio
+  if (cart.length === 0) {
+    document.getElementById("cart-warn").classList.remove("hidden");
+    addressInput.classList.add("border-red-500"); // Exibe aviso de carrinho vazio
+    return;
   }
 
   // Limpar campos
@@ -228,6 +245,17 @@ checkoutBtn.addEventListener("click", function () {
     <strong>Hora:</strong> ${currentTime}<br>
     <strong>Data:</strong> ${formattedDate}
   `;
+
+  // enviar o pedido para whatsapp
+  // Mapeia os itens do carrinho em strings formatadas
+  const cartItems = cart.map((item) => {
+    return ` ${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price}`;
+  });
+
+  // Exibe todos os itens do carrinho no console
+  console.log(cartItems.join("\n")); // Exibe cada item em uma nova linha
+
+  // Enviar o pedido para o WhatsApp ou exibir onde necessário
 
   successModal.classList.remove("hidden"); // Exibe a modal
 });
@@ -266,3 +294,30 @@ localizacaoAtual.addEventListener("click", function () {
     alert("Geolocalização não é suportada neste navegador.");
   }
 });
+
+// verificar horario de funcionamento e manipular o card do horario
+function checkRestauranteOpen() {
+  const data = new Date(); // Pega data atual
+  const hora = data.getHours(); // Devolve a hora atual
+  return hora >= 18 && hora < 22; // true = restaurante estará aberto
+}
+
+const spanItem = document.getElementById("date-span");
+const isOpen = checkRestauranteOpen();
+
+// Atualiza a cor de fundo e exibe o horário de funcionamento com o status
+if (isOpen) {
+  spanItem.classList.remove("bg-red-500");
+  spanItem.classList.add("bg-green-600");
+  spanItem.innerHTML = `
+    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-bold justify-center flex">(ABERTO)</span>
+  `;
+} else {
+  spanItem.classList.remove("bg-green-600");
+  spanItem.classList.add("bg-red-500");
+  spanItem.innerHTML = `
+    <span class="text-white font-medium block ">Seg á Dom - 18:00 às 22:00</span><br>
+    <span class="text-white font-bold justify-center flex">(FECHADO)</span>
+  `;
+}
