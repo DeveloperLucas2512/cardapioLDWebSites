@@ -269,9 +269,9 @@ checkoutBtn.addEventListener("click", function () {
   const pedidoItens = cart
     .map(
       (item) =>
-        `*${item.name}*\nQtd: ${
+        `*${item.name}*\nQtd: \`${
           item.quantity
-        }\t\tPreço: R$ ${item.price.toFixed(2)}\n`
+        }\`\t\tPreço: \`R$ ${item.price.toFixed(2)}\`\n`
     )
     .join("\n");
 
@@ -293,10 +293,10 @@ checkoutBtn.addEventListener("click", function () {
   cart = []; // Esvaziar o carrinho
 
   // Formatar mensagem para o WhatsApp
-  const mensagemWhatsApp = `*N. Pedido:* ${randomNumber}\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
+  const mensagemWhatsApp = `*N. Pedido:* *${randomNumber}*\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
   // Abrir WhatsApp com a mensagem formatada
-  const phone = "16992381823";
+  const phone = "16997897371";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(mensagemWhatsApp)}`,
     "_blank"
