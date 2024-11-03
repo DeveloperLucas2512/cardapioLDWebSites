@@ -265,22 +265,23 @@ checkoutBtn.addEventListener("click", function () {
     return; // Parar a função se o endereço está vazio
   }
 
-  // Limpar campo de endereço e resetar o carrinho após finalizar pedido e enviar para o whats
+  // Limpar campo de endereço e resetar o carrinho após finalizar pedido e enviar para o WhatsApp
   const pedidoItens = cart
     .map(
       (item) =>
-        `${item.name} - Quantidade: (${
+        `- ${item.name} | Quantidade: ${
           item.quantity
-        }) - Preço: R$ ${item.price.toFixed(2)} |`
+        } | Preço: R$ ${item.price.toFixed(2)}`
     )
     .join("\n");
 
-  // Atualizar o modal com o número do pedido, data e hora
+  // Gerar informações do pedido
   const randomNumber = Math.floor(Math.random() * 10000);
   const currentDate = new Date();
-  const currentTime = currentDate.toLocaleTimeString();
-  const formattedDate = currentDate.toLocaleDateString();
+  const currentTime = currentDate.toLocaleTimeString("pt-BR");
+  const formattedDate = currentDate.toLocaleDateString("pt-BR");
 
+  // Atualizar o modal com o número do pedido, data e hora
   modalMessage.innerHTML = `
     <strong>Número do Pedido:</strong> ${randomNumber}<br>
     <strong>Hora:</strong> ${currentTime}<br>
@@ -291,16 +292,19 @@ checkoutBtn.addEventListener("click", function () {
   successModal.classList.remove("hidden"); // Mostrar modal de sucesso
   cart = []; // Esvaziar o carrinho
 
-  const message = encodeURIComponent(pedidoItens);
-  const phone = "16997897371";
+  // Formatar mensagem para o WhatsApp
+  const mensagemWhatsApp = `*Número do Pedido:* ${randomNumber}\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
+  // Abrir WhatsApp com a mensagem formatada
+  const phone = "16997897371";
   window.open(
-    `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value} Número Pedido: ${randomNumber}`,
+    `https://wa.me/${phone}?text=${encodeURIComponent(mensagemWhatsApp)}`,
     "_blank"
   );
-  //console.log("Itens do Pedido:\n", pedidoItens); // Exibe cada item em uma nova linha
 
-  updateCartModal(); // Atualizar o carrinho visualmente
+  // Limpar o campo de endereço e atualizar o carrinho visualmente
+  addressInput.value = "";
+  updateCartModal();
 });
 
 // Evento de clique para fechar o modal de sucesso
