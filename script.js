@@ -341,3 +341,43 @@ localizacaoAtual.addEventListener("click", function () {
     alert("Geolocalização não é suportada neste navegador.");
   }
 });
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// Seleciona o elemento com a classe 'expandable' (o botão '+')
+const expandButton = document.querySelector(".expandable");
+
+// Seleciona o elemento da lista que será expandida
+const extraMenu = document.querySelector(".extra-menu");
+
+// Adiciona o evento de clique para expandir ou contrair a lista
+expandButton.addEventListener("click", function (event) {
+  event.stopPropagation(); // Impede que o clique se propague
+  extraMenu.style.display =
+    extraMenu.style.display === "block" ? "none" : "block";
+});
+
+// Adiciona o evento de clique ao documento para fechar a lista ao clicar fora
+document.addEventListener("click", function () {
+  extraMenu.style.display = "none";
+});
+
+// Seleciona todos os elementos <p> dentro de .container-links
+const pElements = document.querySelectorAll(".container-links p");
+
+// Adiciona o evento de clique a cada <p> para adicionar/remover a classe 'clicked'
+pElements.forEach((pElement) => {
+  pElement.addEventListener("click", function (event) {
+    event.stopPropagation(); // Impede que o clique no <p> se propague para o documento
+
+    // Remove a classe 'clicked' de todos os <p> antes de adicionar ao elemento clicado
+    pElements.forEach((el) => el.classList.remove("clicked"));
+
+    // Adiciona a classe 'clicked' ao elemento <p> clicado
+    pElement.classList.add("clicked");
+  });
+});
+
+// Adiciona o evento de clique ao documento para remover a classe 'clicked' ao clicar fora de qualquer <p>
+document.addEventListener("click", function () {
+  pElements.forEach((pElement) => pElement.classList.remove("clicked"));
+});
