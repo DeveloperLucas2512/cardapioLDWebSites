@@ -27,21 +27,24 @@ i {
 }
 
 /*=======> tabs links <========*/
+
 .container-links {
   border-radius: 5px;
   padding: 5px;
   background-color: #c4bdbd;
-  width: fit-content;
+  width: 100%; /* Expande para 100% em dispositivos móveis */
+  max-width: 600px; /* Limita a largura em telas maiores */
   height: auto;
   display: flex;
+  flex-wrap: wrap; /* Permite que os elementos quebrem linha se necessário */
   justify-content: center;
   margin: 0 auto;
-  gap: 20px;
+  gap: 10px; /* Reduz o gap para um layout mais compacto em telas pequenas */
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .container-links p.clicked {
-  font-size: 15px;
   background-color: green;
   border-radius: 5px;
   padding: 2px;
@@ -49,27 +52,52 @@ i {
 
 .container-links p {
   color: white;
-  cursor: pointer; /* Adiciona um cursor de ponteiro aos itens clicáveis */
+  cursor: pointer;
+  text-align: center;
 }
 
 .links-field {
-  position: relative; /* Permite que elementos filhos absolutamente posicionados sejam relativos a este contêiner */
+  position: relative;
+  width: fit-content;
+  text-align: center;
 }
 
+/* Menu extra que expande */
 ul.extra-menu {
-  position: absolute; /* Remove do fluxo normal do documento */
-  top: 100%; /* Posiciona a lista imediatamente abaixo do '+' */
-  left: 0; /* Alinha a lista à esquerda do contêiner pai */
+  position: absolute;
+  top: 100%;
+  left: 0;
   list-style: none;
   padding: 10px;
   margin: 0;
-  display: none; /* Escondido por padrão */
-  background-color: #444; /* Ajuste o estilo como preferir */
+  display: none;
+  background-color: #444;
   color: white;
   border-radius: 5px;
-  z-index: 1000; /* Garante que a lista fique acima de outros elementos */
+  z-index: 1000;
+  min-width: 150px; /* Ajusta a largura mínima do menu */
 }
 
 ul.extra-menu li {
   padding: 5px 0;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .container-links {
+    flex-direction: column; /* Alinha os itens verticalmente em telas menores */
+    align-items: center; /* Centraliza os itens */
+    gap: 5px;
+    font-size: 0.9rem; /* Diminui levemente o tamanho da fonte */
+  }
+
+  .links-field {
+    width: 100%; /* Expande cada item para ocupar a largura total no celular */
+    text-align: center;
+  }
+
+  ul.extra-menu {
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o menu extra abaixo do '+' */
+  }
 }

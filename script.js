@@ -343,7 +343,7 @@ localizacaoAtual.addEventListener("click", function () {
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////
-// Seleciona o elemento com a classe 'expandable' (o botão '+')
+// Seleciona o botão '+' que expande o menu
 const expandButton = document.querySelector(".expandable");
 
 // Seleciona o elemento da lista que será expandida
@@ -361,23 +361,59 @@ document.addEventListener("click", function () {
   extraMenu.style.display = "none";
 });
 
-// Seleciona todos os elementos <p> dentro de .container-links
-const pElements = document.querySelectorAll(".container-links p");
-
-// Adiciona o evento de clique a cada <p> para adicionar/remover a classe 'clicked'
-pElements.forEach((pElement) => {
-  pElement.addEventListener("click", function (event) {
-    event.stopPropagation(); // Impede que o clique no <p> se propague para o documento
-
-    // Remove a classe 'clicked' de todos os <p> antes de adicionar ao elemento clicado
-    pElements.forEach((el) => el.classList.remove("clicked"));
-
-    // Adiciona a classe 'clicked' ao elemento <p> clicado
-    pElement.classList.add("clicked");
-  });
+// Impede que o menu feche ao clicar dentro de .extra-menu
+extraMenu.addEventListener("click", function (event) {
+  event.stopPropagation();
 });
 
-// Adiciona o evento de clique ao documento para remover a classe 'clicked' ao clicar fora de qualquer <p>
-document.addEventListener("click", function () {
-  pElements.forEach((pElement) => pElement.classList.remove("clicked"));
+////////////////////======> carregar conteudo dos links clicados <===========///////////////////////
+const contentContainer = document.getElementById("content-container");
+let activeElementId = null; // Armazena o ID do conteúdo atualmente visível
+
+// Função genérica para carregar e exibir conteúdo
+async function loadPageContent(pageUrl, elementId) {
+  // Verifica se há um conteúdo visível e o oculta
+  if (activeElementId && activeElementId !== elementId) {
+    const activeElement = document.getElementById(activeElementId);
+    if (activeElement) activeElement.style.display = "none";
+  }
+
+  // Verifica se o contêiner para o novo conteúdo já existe
+  let contentElement = document.getElementById(elementId);
+  if (!contentElement) {
+    contentElement = document.createElement("div");
+    contentElement.id = elementId;
+    contentContainer.appendChild(contentElement);
+  }
+
+  // Exibe o novo conteúdo
+  try {
+    const response = await fetch(pageUrl);
+    if (!response.ok) throw new Error("Erro ao carregar o conteúdo.");
+    const content = await response.text();
+    contentElement.innerHTML = content;
+    contentElement.style.display = "block"; // Exibe o conteúdo
+
+    // Atualiza o ID do conteúdo visível
+    activeElementId = elementId;
+  } catch (error) {
+    console.error("Erro ao carregar o conteúdo:", error);
+    contentElement.innerHTML = "<p>O conteúdo não pôde ser carregado.</p>";
+  }
+}
+
+// Adiciona o evento de clique para cada link na lista (inclui <p> e <li>)
+const linkElements = document.querySelectorAll(
+  ".container-links p, .extra-menu li"
+);
+
+linkElements.forEach((element) => {
+  element.addEventListener("click", function () {
+    // Obtém a URL e o ID do contêiner a partir dos atributos data
+    const pageUrl = element.getAttribute("data-url");
+    const elementId = element.getAttribute("data-id");
+
+    // Carrega o conteúdo dinamicamente para o contêiner correspondente
+    loadPageContent(pageUrl, elementId);
+  });
 });
