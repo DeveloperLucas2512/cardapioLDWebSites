@@ -38,7 +38,7 @@ closeModalBtn.addEventListener("click", function () {
 menu.addEventListener("click", function (event) {
   //console.log(event.target);
 
-  let parentButton = event.target.closest(".add-to-cart-btn");
+  const parentButton = event.target.closest(".add-to-cart-btn");
   //console.log(parentButton);
   if (parentButton) {
     const name = parentButton.getAttribute("data-name");
@@ -49,12 +49,12 @@ menu.addEventListener("click", function (event) {
     //console.log(price);
 
     //adicionar no carrinho
-    addToCar(name, price);
+    addToCart(name, price);
   }
 });
 
 //Função para adicionar no carrinho
-function addToCar(name, price) {
+function addToCart(name, price) {
   //alert("O item é " + name + " e seu valor é: " + price);
 
   const existingItem = cart.find((item) => item.name === name);
