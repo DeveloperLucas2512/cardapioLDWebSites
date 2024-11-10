@@ -56,67 +56,28 @@
 
     <div class="container-links">
       <div class="links-field">
-        <p
-          class="font-bold"
-          data-url="./porcoesfrias.html"
-          data-id="porcoes-frias"
-        >
-          PORÇÕES FRIAS
-        </p>
+        <a href="#porcoes-frias" class="font-bold">PORÇÕES FRIAS</a>
       </div>
-
       <div class="links-field">
-        <p
-          class="font-bold"
-          data-url="./porcoesquentes.html"
-          data-id="porcoes-quentes"
-        >
-          PORÇÕES QUENTES
-        </p>
+        <a href="#porcoes-quentes" class="font-bold">PORÇÕES QUENTES</a>
       </div>
-
       <div class="links-field">
-        <p class="font-bold" data-url="./cervejas.html" data-id="cervejas">
-          CERVEJAS
-        </p>
+        <a href="#cervejas" class="font-bold">CERVEJAS</a>
       </div>
-
       <div class="links-field">
-        <p
-          class="font-bold"
-          data-url="./refrigerantes.html"
-          data-id="refrigerantes"
-        >
-          REFRIGERANTES
-        </p>
+        <a href="#refrigerantes" class="font-bold">REFRIGERANTES</a>
       </div>
-
       <div class="links-field">
-        <p class="font-bold" data-url="./sucos.html" data-id="sucos">SUCOS</p>
+        <a href="#sucos" class="font-bold">SUCOS</a>
       </div>
-
       <div class="links-field">
         <p class="font-bold expandable">+</p>
         <ul class="extra-menu">
-          <li class="font-bold" data-url="./vinhos.html" data-id="vinhos">
-            VINHOS
-          </li>
-
-          <li class="font-bold" data-url="./whisky.html" data-id="whisky">
-            WHISKY
-          </li>
-
-          <li class="font-bold" data-url="./coqueteis.html" data-id="coqueteis">
-            COQUETÉIS
-          </li>
-
-          <li class="font-bold" data-url="./licores.html" data-id="licores">
-            LICORES
-          </li>
-
-          <li class="font-bold" data-url="./cafes.html" data-id="cafes">
-            CAFÉS
-          </li>
+          <li><a href="#vinhos" class="font-bold">VINHOS</a></li>
+          <li><a href="#whisky" class="font-bold">WHISKY</a></li>
+          <li><a href="#coqueteis" class="font-bold">COQUETÉIS</a></li>
+          <li><a href="#licores" class="font-bold">LICORES</a></li>
+          <li><a href="#cafes" class="font-bold">CAFÉS</a></li>
         </ul>
       </div>
     </div>
@@ -133,120 +94,562 @@
     <div id="cafes"></div>
 
     <div class="mx-auto max-w-7x1 px-2 my-2 mt-5 mb-3">
-      <h2 class="font-bold text-2xl text-left">Lanches</h2>
+      <h2 class="font-bold text-2xl text-center">OS MAIS PEDIDOS</h2>
     </div>
     <!-- CARDAPIO -->
     <div id="menu">
       <main
         class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7x1 px-2 mb-10 lg:grid-cols-3"
       >
-        <!-- INICIO Produtos -->
-        <div class="flex gap-2">
+        <!-- INICIO Cerveja -->
+        <div class="flex gap-2 w-full">
           <img
-            src="./assets/hamb-1.png"
-            alt="Hamburguer Smash"
+            src="./assets/cerveja-heineken.webp"
+            alt="Heineken 600ml"
             class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
           />
-          <div>
-            <p class="font-bold">Hambuguer Smash</p>
-            <p class="text-sm">
-              Pão levinho de fermentação natural da Tigoou, burguer 160g, queijo
-              e maionese da casa.
-            </p>
+          <div class="w-full">
+            <p class="font-bold">Heineken 600ml</p>
             <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 18.90</p>
+              <p class="font-bold text-lg">R$ 13.99</p>
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Hambuguer Smash"
-                data-price="18.90"
+                data-name="Heineken 600ml"
+                data-price="13.99"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
             </div>
           </div>
         </div>
-        <!-- FIM Produtos -->
+        <!-- FIM Cerveja -->
 
-        <!-- INICIO Produtos -->
-        <div class="flex gap-2">
+        <!-- INICIO Porção Quente -->
+        <div class="flex gap-2 w-full">
           <img
-            src="./assets/hamb-2.png"
-            alt="Hamburguer Duplo"
+            src="./assets/porcao-file-tilapia.webp"
+            alt="Isca de Filé de Tilápia"
             class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
           />
-          <div>
-            <p class="font-bold">Hamburguer Duplo</p>
-            <p class="text-sm">
-              Pão levinho de fermentação natural da Tigoou, burguer 160g, queijo
-              e maionese da casa.
-            </p>
+          <div class="w-full">
+            <p class="font-bold">Isca de Filé de Tilápia</p>
             <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 32.90</p>
+              <p class="font-bold text-lg">R$ 13.99</p>
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Hamburguer Duplo"
-                data-price="32.90"
+                data-name="Isca de Filé de Tilápia"
+                data-price="44.99"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
             </div>
           </div>
         </div>
-        <!-- FIM Produtos -->
+        <!-- FIM Porção Quente -->
 
-        <!-- INICIO Produtos -->
-        <div class="flex gap-2">
+        <!-- INICIO Cerveja -->
+        <div class="flex gap-2 w-full">
           <img
-            src="./assets/hamb-3.png"
-            alt="Hamburguer Salad"
+            src="./assets/cerveja-amstel.webp"
+            alt="Amstel 600ml"
             class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
           />
-          <div>
-            <p class="font-bold">Hamburguer Salada</p>
-            <p class="text-sm">
-              Pão levinho de fermentação natural da Tigoou, burguer 160g, queijo
-              e maionese da casa.
-            </p>
-            <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 35.90</p>
-              <button
-                class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Hamburguer Salad"
-                data-price="35.90"
-              >
-                <i class="fa fa-cart-plus text-lg text-white"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- FIM Produtos -->
+          <div class="w-full">
+            <p class="font-bold">Amstel 600ml</p>
 
-        <!-- INICIO Produtos -->
-        <div class="flex gap-2">
-          <img
-            src="./assets/hamb-4.png"
-            alt="Hamburguer da Casa"
-            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
-          />
-          <div>
-            <p class="font-bold">Hamburguer da Casa</p>
-            <p class="text-sm">
-              Pão levinho de fermentação natural da Tigoou, burguer 160g, queijo
-              e maionese da casa.
-            </p>
             <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 32.90</p>
+              <p class="font-bold text-lg">R$ 13.99</p>
               <button
                 class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Hamburguer da Casa"
-                data-price="32.90"
+                data-name="Amstel 600ml"
+                data-price="13.99"
               >
                 <i class="fa fa-cart-plus text-lg text-white"></i>
               </button>
             </div>
           </div>
         </div>
-        <!-- FIM Produtos -->
+        <!-- FIM Cerveja -->
+
+        <!-- INICIO Porção Quente -->
+        <div class="flex gap-2 w-full">
+          <img
+            src="./assets/porcao-file-tilapia.webp"
+            alt="Quibe com requeijão (12 unid)"
+            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+          />
+          <div class="w-full">
+            <p class="font-bold">Quibe com requeijão (12 unid)</p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 39.99</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Quibe com requeijão (12 unid)"
+                data-price="44.99"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- FIM Porção Quente -->
+
+        <!-- INICIO Cerveja -->
+        <div class="flex gap-2 w-full">
+          <img
+            src="./assets/suco-abacaxi-hortela.webp"
+            alt="Abacaxi com Hortelã 350ml"
+            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+          />
+          <div class="w-full">
+            <p class="font-bold">Abacaxi com Hortelã 350ml</p>
+
+            <div class="flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 8.99</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Abacaxi com Hortelã 350ml"
+                data-price="8.99"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- FIM Cerveja -->
+
+        <!-- INICIO Porção Quente -->
+        <div class="flex gap-2 w-full">
+          <img
+            src="./assets/porcao-file-tilapia.webp"
+            alt="Tabúa de Frios"
+            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+          />
+          <div class="w-full">
+            <p class="font-bold">Tabúa de Frios</p>
+            <div class="flex items-center gap-2 justify-between mt-3">
+              <p class="font-bold text-lg">R$ 54.99</p>
+              <button
+                class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                data-name="Tabúa de Frios"
+                data-price="54.99"
+              >
+                <i class="fa fa-cart-plus text-lg text-white"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- FIM Porção Quente -->
+
+        <div class="mx-auto max-w-7x1 px-2 my-2 mt-5 mb-3">
+          <h2 class="font-bold text-2xl text-center">CARDÁPIO</h2>
+        </div>
+
+        <!-- INICIO Cardapio -->
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
+
+        <div class="font-bold" id="refrigerante">
+          Refrigerantes
+          <!-- INICIO Refrigerantes -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/refri-1.png"
+              alt="Coca Cola Lata 350ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Coca Cola Lata 350ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 5.90</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Coca Cola Lata 350ml"
+                  data-price="5.90"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Refrigerantes -->
+
+          <!-- INICIO Refrigerantes -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/refri-2.png"
+              alt="Guaraná Lata 350ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Guaraná Lata 350ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 5.90</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Guaraná Lata 350ml"
+                  data-price="5.90"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Refrigerantes -->
+        </div>
+
+        <!-- INICIO Sucos -->
+        <div class="font-bold" id="cerveja">
+          Sucos
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/suco-morango.webp"
+              alt="Suco Morango 350ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Suco Morango 350ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 8.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Suco Morango 350ml"
+                  data-price="8.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Sucos -->
+
+          <!-- INICIO Sucos -->
+        <div class="font-bold" id="cerveja">
+          Sucos
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/suco-limao.webp"
+              alt="Suco Limão 350ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Suco Limão 350ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 8.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Suco Limão 350ml"
+                  data-price="8.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Sucos -->
+        </div>
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
+
+        <div class="font-bold" id="cerveja">
+          CERVEJAS
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-antarctica.webp"
+              alt="Antarctica 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Antarctica 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 11.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Antarctica 600ml"
+                  data-price="11.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+
+          <!-- INICIO Cerveja -->
+          <div class="flex gap-2 w-full">
+            <img
+              src="./assets/cerveja-budwiser.webp"
+              alt="Budwiser 600ml"
+              class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
+            />
+            <div class="w-full">
+              <p class="font-bold">Budwiser 600ml</p>
+
+              <div class="flex items-center gap-2 justify-between mt-3">
+                <p class="font-bold text-lg">R$ 12.99</p>
+                <button
+                  class="bg-gray-900 px-5 rounded add-to-cart-btn"
+                  data-name="Budwiser 600ml"
+                  data-price="12.99"
+                >
+                  <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- FIM Cerveja -->
+        </div>
       </main>
 
       <div class="mx-auto max-w-7x1 px-2 my-2 mt-3 mb-3">
@@ -256,57 +659,11 @@
       <div
         class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7x1 px-2 mb-20 lg:grid-cols-3"
         id="menu"
-      >
-        <!-- INICIO Produtos Bebidas -->
-        <div class="flex gap-2 w-full">
-          <img
-            src="./assets/refri-1.png"
-            alt="Coca Cola Lata 350ml"
-            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
-          />
-          <div class="w-full">
-            <p class="font-bold">Coca Cola Lata 350ml</p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 5.90</p>
-              <button
-                class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Coca Cola Lata 350ml"
-                data-price="5.90"
-              >
-                <i class="fa fa-cart-plus text-lg text-white"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- FIM Produtos Bebidas -->
-
-        <!-- INICIO Produtos Bebidas -->
-        <div class="flex gap-2 w-full">
-          <img
-            src="./assets/refri-2.png"
-            alt="Guaraná Lata 350ml"
-            class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-150"
-          />
-          <div class="w-full">
-            <p class="font-bold">Guaraná Lata 350ml</p>
-
-            <div class="flex items-center gap-2 justify-between mt-3">
-              <p class="font-bold text-lg">R$ 5.90</p>
-              <button
-                class="bg-gray-900 px-5 rounded add-to-cart-btn"
-                data-name="Guaraná Lata 350ml"
-                data-price="5.90"
-              >
-                <i class="fa fa-cart-plus text-lg text-white"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- FIM Produtos Bebidas -->
-      </div>
+      ></div>
       <!-- FIM GRID BEBIDAS -->
     </div>
+
+    <!------------------------- SETOR MODAL -------------------------->
 
     <!-- MODAL CARD -->
     <div
