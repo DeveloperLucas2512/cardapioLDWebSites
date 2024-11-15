@@ -82,6 +82,39 @@ ul.extra-menu li {
   padding: 5px 0;
 }
 
+.menu-section {
+  max-width: 700px;
+  margin: auto;
+}
+
+.menu-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.menu-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.menu-content {
+  display: none; /* Conteúdo começa oculto */
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.menu-item.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
 /* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
   .container-links {

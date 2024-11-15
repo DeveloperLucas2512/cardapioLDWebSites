@@ -417,3 +417,48 @@ linkElements.forEach((element) => {
     loadPageContent(pageUrl, elementId);
   });
 });
+
+function toggleSection(sectionId) {
+  const content = document.getElementById(sectionId);
+  const parent = content.parentElement;
+  const icon = parent.querySelector(".toggle-icon");
+
+  // Alterna a exibição do conteúdo
+  if (content.style.display === "none" || content.style.display === "") {
+    content.style.display = "block";
+    parent.classList.add("open");
+  } else {
+    content.style.display = "none";
+    parent.classList.remove("open");
+  }
+}
+
+function loadContent(sectionId, url) {
+  const content = document.getElementById(`${sectionId}-content`);
+  const parent = content.parentElement;
+  const icon = parent.querySelector(".toggle-icon");
+
+  if (content.style.display === "none" || content.style.display === "") {
+    fetch(url) // Use o caminho relativo "cervejas.html" aqui
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Erro ao carregar o conteúdo: ${response.statusText}`
+          );
+        }
+        return response.text();
+      })
+      .then((data) => {
+        content.innerHTML = data;
+        content.style.display = "block";
+        parent.classList.add("open");
+      })
+      .catch((error) => {
+        content.innerHTML = `<p style="color: red;">Erro ao carregar conteúdo.</p>`;
+        console.error(error);
+      });
+  } else {
+    content.style.display = "none";
+    parent.classList.remove("open");
+  }
+}
