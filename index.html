@@ -56,6 +56,9 @@
 
     <div class="container-links">
       <div class="links-field">
+        <a href="#espetos" class="font-bold">ESPETOS</a>
+      </div>
+      <div class="links-field">
         <a href="#porcoes-frias" class="font-bold">PORÇÕES FRIAS</a>
       </div>
       <div class="links-field">
@@ -70,7 +73,7 @@
       <div class="links-field">
         <a href="#sucos" class="font-bold">SUCOS</a>
       </div>
-      <div class="links-field">
+      <!-- <div class="links-field">
         <p class="font-bold expandable">+</p>
         <ul class="extra-menu">
           <li><a href="#vinhos" class="font-bold">VINHOS</a></li>
@@ -79,19 +82,8 @@
           <li><a href="#licores" class="font-bold">LICORES</a></li>
           <li><a href="#cafes" class="font-bold">CAFÉS</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
-
-    <div id="porcoes-quentes"></div>
-    <div id="porcoes-frias"></div>
-    <div id="cervejas"></div>
-    <div id="refrigerantes"></div>
-    <div id="sucos"></div>
-    <div id="vinhos"></div>
-    <div id="whisky"></div>
-    <div id="coqueteis"></div>
-    <div id="licores"></div>
-    <div id="cafes"></div>
 
     <div class="mx-auto max-w-7x1 px-2 my-2 mt-5 mb-3">
       <h2 class="font-bold text-2xl text-center">OS MAIS PEDIDOS</h2>
@@ -244,37 +236,34 @@
         <div class="menu-section">
           <h2 class="font-bold text-2xl text-center mt-9 mb-6">CARDÁPIO</h2>
 
-          <div class="menu-item">
-            <div class="menu-title" onclick="toggleSection('espetos-content')">
-              <span>ESPETOS</span>
+          <div class="menu-item" id="espetos">
+            <div
+              class="menu-title"
+              onclick="loadContent('espetos', 'espetos.html')"
+            >
+              <span>ESPETOS ............................</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
-            <div class="menu-content" id="espetos-content">
-              <p>Conteúdo de ESPETOS</p>
-              <!-- Adicione mais conteúdo relacionado a ESPETOS aqui -->
-            </div>
+            <div class="menu-content" id="espetos-content"></div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="porcoes-frias">
             <div
               class="menu-title"
               onclick="loadContent('porcoes-frias', 'porcoesFrias.html')"
             >
-              <span>PORÇÕES FRIAS</span>
+              <span>PORÇÕES FRIAS ................. </span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
-            <div class="menu-content" id="porcoes-frias-content">
-              <p>Conteúdo de PORÇÕES FRIAS</p>
-              <!-- Adicione mais conteúdo relacionado a PORÇÕES FRIAS aqui -->
-            </div>
+            <div class="menu-content" id="porcoes-frias-content"></div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="porcoes-quentes">
             <div
               class="menu-title"
               onclick="loadContent('porcoes-quentes', 'porcoesQuentes.html')"
             >
-              <span>PORÇÕES QUENTES</span>
+              <span>PORÇÕES QUENTES ...........</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
             <div class="menu-content" id="porcoes-quentes-content">
@@ -282,12 +271,12 @@
             </div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="cervejas">
             <div
               class="menu-title"
               onclick="loadContent('cerveja', 'cervejas.html')"
             >
-              <span>CERVEJAS</span>
+              <span>CERVEJAS ..........................</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
             <div class="menu-content" id="cerveja-content">
@@ -295,31 +284,31 @@
             </div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="drinks">
             <div
               class="menu-title"
               onclick="loadContent('drink', 'drinks.html')"
             >
-              <span>DRINKS</span>
+              <span>DRINKS ...............................</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
             <div class="menu-content" id="drink-content"></div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="refrigerantes">
             <div
               class="menu-title"
               onclick="loadContent('refrigerante', 'refrigerantes.html')"
             >
-              <span>REFRIGERANTES</span>
+              <span>REFRIGERANTES ................</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
             <div class="menu-content" id="refrigerante-content"></div>
           </div>
 
-          <div class="menu-item">
+          <div class="menu-item" id="sucos">
             <div class="menu-title" onclick="loadContent('suco', 'sucos.html')">
-              <span>SUCOS</span>
+              <span>SUCOS ................................</span>
               <i class="fas fa-chevron-down toggle-icon"></i>
             </div>
             <div class="menu-content" id="suco-content"></div>

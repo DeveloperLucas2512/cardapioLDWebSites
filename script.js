@@ -462,3 +462,23 @@ function loadContent(sectionId, url) {
     parent.classList.remove("open");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll('a[href^="#"]'); // Seleciona todos os links com href começando com #
+
+  links.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Evita o comportamento padrão do link
+
+      const targetID = this.getAttribute("href"); // Obtém o ID do destino
+      const targetElement = document.querySelector(targetID); // Encontra o elemento correspondente
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth", // Habilita rolagem suave
+          block: "start", // Alinha no topo
+        });
+      }
+    });
+  });
+});
