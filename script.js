@@ -236,7 +236,7 @@ if (isOpen) {
 function checkRestauranteOpen() {
   const data = new Date(); // Data atual
   const hora = data.getHours(); // Hora atual
-  return hora >= 8 && hora < 22; // Restaurante aberto entre 18:00 e 22:00
+  return hora >= 8 && hora < 23; // Restaurante aberto entre 18:00 e 22:00
 }
 
 // Evento de clique para finalizar o pedido
@@ -296,7 +296,7 @@ checkoutBtn.addEventListener("click", function () {
   const mensagemWhatsApp = `*N. Pedido:* *${randomNumber}*\n*Data:* ${formattedDate}\n*Hora:* ${currentTime}\n\n*Itens do Pedido:*\n${pedidoItens}\n\n*Endereço de Entrega:* ${addressInput.value}`;
 
   // Abrir WhatsApp com a mensagem formatada
-  const phone = "16993102055";
+  const phone = "16992142254";
   window.open(
     `https://wa.me/${phone}?text=${encodeURIComponent(mensagemWhatsApp)}`,
     "_blank"
